@@ -24,56 +24,49 @@ countryRegions = []
 
 headings = ['Country', 'Region', 'num of Adults', 'num of Children', 'num of Infants', 'num of Pets', 'num of Days']
 
-def makeCountryFile(country):
+def makeCountryFile(country, countryRegions):
 	thisFile = country[0] + ".csv"
 	myFile = open(thisFile, 'wb')
 	wr = csv.writer(myFile, quoting=csv.QUOTE_ALL)
 	wr.writerow(headings)
 
- 	for r in itertools.product(countryRegions, numAdults, numChildren, numInfants, numPets, duration): 
+ 	for r in itertools.product(country, countryRegions, numAdults, numChildren, numInfants, numPets, duration): 
 	    	wr.writerow( r)
 	return
 
-def makeCountryRegion(country, regions):
-	for e in itertools.product(country, regions):
- 		countryRegions.append(str(e[0]+ "|" + e[1]))
-	makeCountryFile(country)
-	
-	while len(countryRegions) > 0 : countryRegions.pop()
-	return
 
 england = ['England']
 engRegion = ['All regions', 'Bedfordshire', 'Buckhinghamshire', 'Derbyshire', 'Gloucestershire', 'Hertfordshire', 'Leicestershire', 'Lincolnshire', 'Northamptonshire', 'Nottinghamshire', 'Oxfordshire', 'Rutland', 'Shropshire', 'Staffordshire', 'Warwickshire', 'Worcestershire', 'Cambridge', 'Essex', 'Norfolk', 'Suffolk', 'County Durham', 'Northumberland', 'Cheshire', 'Cumbria', 'Lancashire', 'Cornwall', 'Devon', 'Dorset', 'Somerset', 'Berkshire', 'Greater London', 'Hampshire', 'Isle of Wight', 'Kent', 'Surrey', 'Sussex', 'Wiltshire', 'Yorkshire', 'Brecon Beacons', 'Cotswolds', 'Dartmoor', 'Exmoor', 'Forest of Dean', 'Lake District', 'New Forest', 'Norfolk Broads', 'Northumberland National Park', 'Peak District', 'Shakespeare Country', 'South Downs', 'Wye Valley', 'Yorkshire Dales', 'Yorkshire Moors','None']
 
-makeCountryRegion(england, engRegion)
+makeCountryFile(england, engRegion)
 
 scotland = ['Scotland']
 scotRegion = ['All regions', 'Angus', 'Argyle and Bute', 'Fife', 'Isle of Mull', 'Perthshire', 'Stirlingshire', 'Aberdeenshire', 'Highlands', 'Isle of Skye', 'Orkney Islands', 'Outer Hebrides', 'Ayrshire', 'Dumfries and Galloway', 'Edinburgh and the Lothians', 'Glasgow and Clyde Valley', 'Isle of Arran', 'Isle of Cumbrae', 'The Scottish Borders', 'Cairngorms', 'Loch Lomond and the Trossachs', 'None']
 
-makeCountryRegion(scotland, scotRegion)
+makeCountryFile(scotland, scotRegion)
 
 wales = ['Wales']
 walesRegion = ['All regions', 'Cardigan/Ceredigon', 'Powys', 'Anglesey', 'County Conwy', 'Gwynedd', 'North Wales Borders', 'Carmarthenshire', 'Glamorgan', 'Monmouthshire', 'Pembrokeshire Coast', 'Snowdonia', 'Wye Valley', 'None']
 
-makeCountryRegion(wales, walesRegion)
+makeCountryFile(wales, walesRegion)
 
 channel= ['Channel Islands']
 channelRegion = ['All regions', 'Jersey', 'None']
 
-makeCountryRegion(channel, channelRegion)
+makeCountryFile(channel, channelRegion)
 
 france = ['France']
 franceRegion = ['All regions', 'Auvergne', 'Burgundy', 'Ile-de-France and Paris', 'Limousin', 'Loire Valley', 'Alps', 'Franche-Comte', 'Alsace', 'Champagne', 'Lorraine', 'Brittany', 'Normandy', 'Pas-de-Calais', 'Picardy', 'Cote-d\'Azur', 'Languedoc-Rousillon', 'Provence', 'Aquitaine', 'Dordogne and Lot', 'Midi-Pyrenees', 'Poitou-Charentes', 'Vendee', 'None']
 
-makeCountryRegion(france, franceRegion)
+makeCountryFile(france, franceRegion)
 
 ireland = ['Ireland']
 irelandRegion = ['All regions', 'County Cavan', 'County Dublin', 'County Kildaire', 'County Laois', 'County Longford', 'County Louth', 'County Meath', 'County North Tipperary', 'County Offaly', 'County Westmeath', 'County Wicklow', 'County Carlow', 'County Kilkenny', 'County South Tipperary', 'County Waterford', 'County Cork', 'County Kerry', 'County Clare', 'County Donegal', 'County Galway', 'County Leitrim', 'County Limerick', 'County Mayo', 'County Roscommon', 'County Silgo', 'None']
 
-makeCountryRegion(ireland, irelandRegion)
+makeCountryFile(ireland, irelandRegion)
 
 italy = ['Italy']
 italyRegion = ['All regions', 'Lazio', 'Tuscany', 'Umbria', 'Liguria', 'Lombardy', 'Veneto', 'Sardinia', 'Sicily', 'Campania', 'Puglia/Apulia', 'None']
 
-makeCountryRegion(italy, italyRegion)
+makeCountryFile(italy, italyRegion)
 
